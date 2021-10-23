@@ -15,7 +15,8 @@
 \addbibresource{ref.bib}               % gbt!=bibtex
 
 \begin{document}
-    \institute[School of Electrical Engineering]{数学科学学院}   % 组织
+    % \institute[School of Electrical Engineering]{数学科学学院}   % 组织
+    \institute[Department of Automation]{自动化系}   % 组织
     \logo{
         \includegraphics{cnlogored.pdf}  % 重定义 logo
     }
@@ -24,8 +25,8 @@
             \includegraphics[width=0.3\textwidth]{head.png}
         \end{stampbox}
     }
-    \title{SJTUBeamer \fbox{\textsc{min}} 幻灯片模板}  % 标题
-    \subtitle{SJTUBeamer \fbox{\textsc{min}} Template}         % 副标题
+    \title{Blockchain and Internet of Things 区块链和物联网}  % 标题
+    \subtitle{Scalable architecture for IoT}         % 副标题
     \author{Pedro Hernández Rubio}                  % 作者
     \date{\today}                          % 日期  
     \maketitle                             % 创建标题页
@@ -33,12 +34,12 @@
 \part{第一部分}
 
 % 使用节目录
-% \AtBeginSection[]{
-%     \begin{frame}
-%         % \tableofcontents[currentsection]           % 传统节目录             
-%         \sectionpage                   % 节页
-%     \end{frame}
-% }
+\AtBeginSection[]{
+    \begin{frame}
+        % \tableofcontents[currentsection]           % 传统节目录             
+        \sectionpage                   % 节页
+    \end{frame}
+}
 
 % 使用小节目录
 \AtBeginSubsection[]{                  % 在每小节开始
