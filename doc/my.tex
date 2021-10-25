@@ -26,8 +26,8 @@
         \end{stampbox}
     }
     \title{Blockchain and Internet of Things 区块链和物联网}  % 标题
-    \subtitle{Access Control Management}         % 副标题
-    \author{Pedro Hernández Rubio}                  % 作者
+    \subtitle{IoT Access Control Management}         % 副标题
+    \author{Pedro Hernández Rubio (021032990002)}                  % 作者
     \date{\today}                          % 日期  
     \maketitle                             % 创建标题页
 
@@ -138,12 +138,13 @@
         \paragraph{Goal} Research decentralized access control solutions for IoT systems management.\cite{ouaddah}
 
         \begin{itemize}
-            \item \alert{DOAuth}: IoT devices data are not required to be sent to centralized services (default trust): data can be stored securely on the peers in the network, anb blockchain assure its authenticity and control authorized accesses.
-            \item \alert{FairAccess}: providing privacy, robust systems and no single point of failure.
+            \item \alert{DOAuth}: Decentralized Open Authentication (heavyweight for IoT)
+            \item \alert{FairAccess}: for non-constrained resources (without memory problems)
+            \item \alert{IBM Adept}: Autonomous Decentralized P2P Telemetry
         \end{itemize}
 
-        \begin{block}{Scalability issue}
-            All operations involving IoT devices in the network can be registered and authenticated in the blockchain: data creation, data modification or data deletion. IoT devices security could be drammatically enhanced.
+        \begin{block}{Scalability problem}
+            Access management to billions of constrained IoT devices is quite a challenge. An easy-to-manage, generic and scalable solution is the goal.
         \end{block}
     \end{frame}
 
@@ -153,18 +154,18 @@
         \frametitle{Current optimal solution}
         
         \begin{block}{Scalable Access Management}
-            Because of scalability issues, a feasible solution requires access control policies are stored in the blockchain layer (smart contract).\cite{novo}
+            Because of scalability issues, a feasible solution proposes that access control policies are stored in the blockchain layer (smart contract). Threrefore, separating IoT devices with the blockchain\cite{novo}
         \end{block}
 
         \paragraph{Decision} Main advantages of this access control in IoT:
 
         \begin{itemize}
-            \item \alert{Mobility}: 
-            \item \alert{Accessibility}: 
-            \item \alert{Concurrency}: 
-            \item \alert{Lightweight}: 
-            \item \alert{Scalability}: 
-            \item \alert{Transparency}: 
+            \item \alert{Mobility}: encapsulating administrative domains
+            \item \alert{Accessibility}: policies always available
+            \item \alert{Concurrency}: many managers for each device
+            \item \alert{Lightweight}: devices straightforward plugin
+            \item \alert{Scalability}: directly connected to blockchain
+            \item \alert{Transparency}: locations and policies hidden
         \end{itemize}
     \end{frame}
 
