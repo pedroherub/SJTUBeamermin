@@ -29,3 +29,6 @@ build/
 doc/red.pdf
 doc/blue.pdf
 doc/my.pdf
+
+beamer.sublime-project
+beamer.sublime-workspace
