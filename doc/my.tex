@@ -1,5 +1,5 @@
 \documentclass[
-    draft,                             % 草稿模式
+    % draft,                             % 草稿模式
     aspectratio=169,                   % 使用 16:9 比例
 ]{beamer}
 \mode<presentation>
@@ -34,20 +34,20 @@
 \part{第一部分 Blockchain technologies applied to IoT architecture}
 
 % 使用节目录
-% \AtBeginSection[]{
-%     \begin{frame}
-%         % \tableofcontents[currentsection]           % 传统节目录             
-%         \sectionpage                   % 节页
-%     \end{frame}
-% }
-
-% 使用小节目录
-\AtBeginSubsection[]{                  % 在每小节开始
+\AtBeginSection[]{
     \begin{frame}
-        \tableofcontents[currentsection,currentsubsection]             % 传统小节目录             
-        \subsectionpage                % 小节页
+        % \tableofcontents[currentsection]           % 传统节目录             
+        \sectionpage                   % 节页
     \end{frame}
 }
+
+% 使用小节目录
+% \AtBeginSubsection[]{                  % 在每小节开始
+%     \begin{frame}
+%         \tableofcontents[currentsection,currentsubsection]             % 传统小节目录             
+%         \subsectionpage                % 小节页
+%     \end{frame}
+% }
 
 \section{第 1 节 Blockchain applied to IoT}
 
@@ -69,7 +69,7 @@
 
     \end{frame}
 
-\subsection{第 2 小节 Blockchain features for IoT}
+\subsection{第 3 小节 Blockchain features for IoT}
 
     \begin{frame}
         \frametitle{Blockchain features for IoT}
@@ -95,6 +95,9 @@
     % \end{frame}
 
 \section{第 2 节 IoT Access Control Management}
+
+\subsection{第 1 小节 Scalability: elephant in the room}
+
     \begin{frame}
         \frametitle{Scalability: elephant in the room}
         
@@ -110,6 +113,8 @@
             示例内容
         \end{exampleblock}
     \end{frame}
+
+\subsection{第 2 小节 IoT architecture (I)}
 
     \begin{frame}
         \frametitle{IoT architecture (I)}
@@ -127,6 +132,8 @@
         \end{exampleblock}
     \end{frame}
 
+\subsection{第 3 小节 IoT architecture (II)}
+
     \begin{frame}
         \frametitle{IoT architecture (II)}
         
@@ -143,6 +150,8 @@
         \end{exampleblock}
     \end{frame}
 
+\subsection{第 4 小节 Limitations}
+
     \begin{frame}
         \frametitle{Limitations}
         
@@ -158,6 +167,8 @@
             示例内容
         \end{exampleblock}
     \end{frame}
+
+\subsection{第 5 小节 Security issues}
 
     \begin{frame}
         \frametitle{Security issues}
