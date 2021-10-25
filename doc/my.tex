@@ -26,7 +26,7 @@
         \end{stampbox}
     }
     \title{Blockchain and Internet of Things 区块链和物联网}  % 标题
-    \subtitle{Scalable architecture for IoT}         % 副标题
+    \subtitle{Access Control Management}         % 副标题
     \author{Pedro Hernández Rubio}                  % 作者
     \date{\today}                          % 日期  
     \maketitle                             % 创建标题页
@@ -110,7 +110,7 @@
             Poor scalability and low throughput of transactions are the biggest issues related to IoT systems. An acceptable trade-off between security and scalability must be determined.\cite{conoscenti}
         \end{block}
 
-        \alert{Mitigations:}
+        Mitigations:
         \begin{itemize}
             \item \alert{Layered architecture}: IoT applications built on top of scalable blockchain network.
             \item \alert{Data storage}: allowing thin clients to delegate some data in the blockchain, as many IoT devices have limited resources.\cite{Axon2015PrivacyawarenessIB}
@@ -130,94 +130,84 @@
 
 \section{第 2 节 IoT Access Control}
 
-\subsection{第 1 小节 Scalability: elephant in the room}
+\subsection{第 1 小节 Decentralized Access Control}
 
     \begin{frame}
-        \frametitle{Scalability: elephant in the room}
+        \frametitle{Decentralized Access Control}
         
-        \begin{block}{盒子}
-            这是一个盒子\cite{conoscenti}
+        \paragraph{Goal} Research decentralized access control solutions for IoT systems management.\cite{ouaddah}
+
+        \begin{itemize}
+            \item \alert{DOAuth}: IoT devices data are not required to be sent to centralized services (default trust): data can be stored securely on the peers in the network, anb blockchain assure its authenticity and control authorized accesses.
+            \item \alert{FairAccess}: providing privacy, robust systems and no single point of failure.
+        \end{itemize}
+
+        \begin{block}{Scalability issue}
+            All operations involving IoT devices in the network can be registered and authenticated in the blockchain: data creation, data modification or data deletion. IoT devices security could be drammatically enhanced.
         \end{block}
-
-        \begin{alertblock}{注意}
-            注意内容
-        \end{alertblock}
-
-        \begin{exampleblock}{示例}
-            示例内容
-        \end{exampleblock}
     \end{frame}
 
-\subsection{第 2 小节 IoT architecture (I)}
+\subsection{第 2 小节 Security issues}
+
+    \begin{frame}
+        \frametitle{Current optimal solution}
+        
+        \begin{block}{Scalable Access Management}
+            Because of scalability issues, a feasible solution involves a layered architecture with access control policies stored as smart contracts.\cite{novo}
+        \end{block}
+
+        \paragraph{Decision} Main advantages of this access control in IoT:
+
+        \begin{Main}
+            \item \alert{Mobility}: 
+            \item \alert{Accessibility}: 
+            \item \alert{Concurrency}: 
+            \item \alert{Lightweight}: 
+            \item \alert{Scalability}: 
+            \item \alert{Transparency}: 
+        \end{itemize}
+    \end{frame}
+
+\subsection{第 3 小节 IoT architecture (I)}
 
     \begin{frame}
         \frametitle{IoT architecture (I)}
-        
-        \begin{block}{盒子}
-            这是一个盒子\cite{novo}
+
+        \begin{block}{Smart contract}
+            Access control management information is stored in the blockchain layer.\cite{novo}
         \end{block}
-
-        \begin{alertblock}{注意}
-            注意内容
-        \end{alertblock}
-
-        \begin{exampleblock}{示例}
-            示例内容
-        \end{exampleblock}
+        
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.6\textheight]{iot-architecture.png}
+            \end{stampbox}
+            \caption{Decentralized Access Control Architecture}
+        \end{figure}
     \end{frame}
 
-\subsection{第 3 小节 IoT architecture (II)}
+\subsection{第 4 小节 IoT architecture (II)}
 
     \begin{frame}
         \frametitle{IoT architecture (II)}
-        
-        \begin{block}{盒子}
-            这是一个盒子\cite{ouaddah}
+
+        \paragraph{Architecture} Components classification:
+
+        \begin{block}{Outside blockchain network}
+            \begin{itemize}
+                \item \alert{Wireless sensor networks}: IoT devices 
+                \item \alert{Management hubs}:
+            \end{itemize}
         \end{block}
 
-        \begin{alertblock}{注意}
-            注意内容
-        \end{alertblock}
-
-        \begin{exampleblock}{示例}
-            示例内容
-        \end{exampleblock}
-    \end{frame}
-
-\subsection{第 4 小节 Limitations}
-
-    \begin{frame}
-        \frametitle{Limitations}
-        
-        \begin{block}{盒子}
-            这是一个盒子\cite{novo}
+        \begin{block}{Inside blockchain network}
+            \begin{itemize}
+            \item \alert{Managers}: 
+            \item \alert{Agent node}:
+            \item \alert{Smart contract}: 
+            \item \alert{Blockchain network}: 
+            \end{itemize}
         \end{block}
-
-        \begin{alertblock}{注意}
-            注意内容
-        \end{alertblock}
-
-        \begin{exampleblock}{示例}
-            示例内容
-        \end{exampleblock}
-    \end{frame}
-
-\subsection{第 5 小节 Security issues}
-
-    \begin{frame}
-        \frametitle{Security issues}
-        
-        \begin{block}{盒子}
-            这是一个盒子\cite{novo}
-        \end{block}
-
-        \begin{alertblock}{注意}
-            注意内容
-        \end{alertblock}
-
-        \begin{exampleblock}{示例}
-            示例内容
-        \end{exampleblock}
     \end{frame}
 
 %     \begin{frame}[fragile]          % 注意添加 fragile 标记
