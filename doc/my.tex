@@ -36,7 +36,7 @@
 % 使用节目录
 \AtBeginSection[]{
     \begin{frame}
-        \tableofcontents[currentsubsection]           % 传统节目录             
+        % \tableofcontents[currentsection]           % 传统节目录             
         \sectionpage                   % 节页
     \end{frame}
 }
@@ -348,7 +348,7 @@
     \end{frame}
 
 \subsection{第 5 小节 Issues}
-
+{
     \begin{frame}
         \frametitle{Issues: hardware}
 
@@ -376,7 +376,7 @@
             Initially my Linux OS was not recognizing NodeMCU board through USB wire. Finally I found solution\cite{ch341}: I needed to update a kernel module \alert{ch341.c} in charge or serial USB communication.
         \end{block}
     \end{frame}
-
+}
 
     % \begin{frame}
     %     \frametitle{Extra}
