@@ -353,7 +353,7 @@
         \frametitle{Issues: hardware}
 
         \begin{block}{Hardware: resistor 4.7K}
-            After buying a starter electronic kit, I realized there was no 4.7K resistor included (recommended for sensor DS18B20). I was afraid of damaging electronic components
+            After buying a starter electronic kit, I realized there was no 4.7K resistor included (recommended\cite{resistor} for sensor DS18B20). I was afraid of damaging electronic components
         \end{block}
 
         \begin{block}{Possible solutions}
@@ -363,7 +363,7 @@
             \end{itemize}
         \end{block}
 
-        \begin{block}{Final solution: power supply MB102}
+        \begin{block}{Final solution: power supply MB102\cite{mb102}}
             When connecting a power supply module to the breadboard, energy supply is more accurate (\~5V). Then, an exact resistor value is not so important. A 5.1K resistor is good enough (some tolerance in limits)
         \end{block}
 
@@ -373,8 +373,7 @@
         \frametitle{Issues: software}
 
         \begin{block}{Software: kernel module CH341}
-            Hola
-            % Initially my Linux OS was not recognizing NodeMCU board through USB wire. Finally I found solution\cite{ch341}: I needed to update a kernel module \alert{ch341} in charge or serial USB communication.
+            Initially my Linux OS was not recognizing NodeMCU board through USB wire. Finally I found solution\cite{ch341}: I needed to update a kernel module \alert{ch341} in charge or serial USB communication.
         \end{block}
     \end{frame}
 
