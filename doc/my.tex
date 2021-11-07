@@ -22,24 +22,24 @@
     }
     \titlegraphic{                         % 标题图像
         \begin{stampbox}
-            \includegraphics[width=0.3\textwidth]{head.png}
+            \includegraphics[width=0.3\textwidth]{coffeemaker.jpeg}
         \end{stampbox}
     }
-    \title{Blockchain and Internet of Things 区块链和物联网}  % 标题
-    \subtitle{IoT Access Control Management}         % 副标题
+    \title{Assignment 1: Coffeemaker control system}  % 标题
+    \subtitle{IoT application system development}         % 副标题
     \author{Pedro Hernández Rubio (021032990002)}                  % 作者
     \date{\today}                          % 日期  
     \maketitle                             % 创建标题页
 
-\part{第一部分 Blockchain technologies applied to IoT architecture}
+\part{第一部分 IoT application system development}
 
 % 使用节目录
-\AtBeginSection[]{
-    \begin{frame}
-        % \tableofcontents[currentsection]           % 传统节目录             
-        \sectionpage                   % 节页
-    \end{frame}
-}
+% \AtBeginSection[]{
+%     \begin{frame}
+%         \tableofcontents[currentsection]           % 传统节目录             
+%         \sectionpage                   % 节页
+%     \end{frame}
+% }
 
 % 使用小节目录
 % \AtBeginSubsection[]{                  % 在每小节开始
@@ -49,163 +49,186 @@
 %     \end{frame}
 % }
 
-\section{第 1 节 Blockchain applied to IoT}
+\section{第 1 节 The IoT idea}
 
-\subsection{第 1 小节 Integrating Blockchain and IoT}
-
-    \begin{frame}
-        \frametitle{Integrating Blockchain and IoT}
-
-        \paragraph{Goal} Research the use of \alert{Blockchain technologies} and \alert{P2P storage systems} for IoT systems management.
-
-        \begin{itemize}
-            \item \alert{Decentralized}: IoT devices data are not required to be sent to centralized services (default trust): data can be stored securely on the peers in the network, anb blockchain assure its authenticity and control authorized accesses.
-            \item \alert{Private-by-design IoT}: providing privacy, robust systems and no single point of failure.
-        \end{itemize}
-
-        \begin{block}{Security}
-            All operations involving IoT devices in the network can be registered and authenticated in the blockchain: data creation, data modification or data deletion. IoT devices security could be drammatically enhanced
-        \end{block}
-
-    \end{frame}
-
-\subsection{第 2 小节 Uses cases}
+\subsection{第 1 小节 Context}
 
     \begin{frame}
-        \frametitle{Use cases}
+        \frametitle{Context: coffeemakers' health}
 
-        \begin{block}{Beyond criptocurrencies}
-            Paradigm of decentralizing services that so far have depend exclusively of centralized trusting authorities. But possible applications are endless.
+        \begin{block}{Problem}
+            I am addicted to drinking coffee. I should quit as it is not good for health but it is not easy. Anyways, I have already broken (burnt) a couple of coffeemakers: I start boiling the coffeemaker but I forget putting it out in time... 咖啡机坏了！ I am quite absent-minded...
         \end{block}
 
-        \paragraph{Research} Several use cases were found on the literature:
-
-        \begin{itemize}
-            \item \alert{Data store management}: data collected by IoT devices can be stored in a blockchain as a single point of truth.\cite{sia}
-            \item \alert{Authentication service}: by public key cryptography, all IoT devices can be securely identified in order to communicate safely among them.\cite{Axon2015PrivacyawarenessIB}
-            \item \alert{Exchanging data}: data collected by devices on one specific network can be traded (or exchanged) according to common establised policies.
-        \end{itemize}
-
-    \end{frame}
-
-\subsection{第 3 小节 Blockchain factors for IoT}
-
-    \begin{frame}
-        \frametitle{Blockchain factors for IoT (I)}
-
-        \begin{block}{Integrity}
-            IoT applications can be securely developed on top of stable blockchain networks, by building a layered architecture with thin clients.\cite{Ali2016BlockstackDA} Thus, consensus protocols and large enough nodes community make possible attacks mostly unfeasible
-        \end{block}
-        \begin{block}{Anonimity}
-            As most of blockchain networs are public, full anonimity is not achieved (IoT devices can still be linked to their respective owners) -> \alert{pseudonimity}
-            Methods for not associating public keys to IoT devices' IDs are being investigated.\cite{Axon2015PrivacyawarenessIB}
+        \begin{block}{Solution}
+            I need a real-time communication system for safety, in order to send me an alert as soon as coffee is ready. So that I can quickly put coffeemaker out kitchen fire, avoiding burnt coffee and damages to coffeemaker. Optimally, receiving an alert message to my mobile phone.
         \end{block}
 
     \end{frame}
 
     \begin{frame}
-        \frametitle{Blockchain factors for IoT (II)}
+        \frametitle{General project design}
 
-        \begin{block}{Adaptability}
-            Poor scalability and low throughput of transactions are the biggest issues related to IoT systems. An acceptable trade-off between security and scalability must be determined.\cite{conoscenti}
-        \end{block}
+        \paragraph{Goal} Getting temperature to cloud IoT platform for data processing
 
-        Mitigations:
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{esquema-general.png}
+            \end{stampbox}
+            \caption{IoT device sends data through WiFi connection}
+        \end{figure}
+
+    \end{frame}
+
+\section{第 2 节 Components}
+
+\subsection{第 1 小节 Hardware components}
+
+    \begin{frame}
+        \frametitle{Hardware components}
+
+        \paragraph{Goal} Research decentralized access control solutions for IoT systems management
+
         \begin{itemize}
-            \item \alert{Layered architecture}: IoT applications built on top of scalable blockchain network.
-            \item \alert{Data storage}: allowing thin clients to delegate some data in the blockchain, as many IoT devices have limited resources.\cite{Axon2015PrivacyawarenessIB}
+            \item \alert{NodeMCU}: IoT board containing ESP8266 as SoC
+            \item \alert{Temperature sensor DS18B20}: for non-constrained resources (without memory problems)
+            \item \alert{Power supply module MB102}: Autonomous Decentralized P2P Telemetry
+            \item \alert{Others:}
+            \begin{itemize}
+                \item \alert{Breadboard}: Decentralized Open Authentication (heavyweight for IoT)
+                \item \alert{Resistor}: for non-constrained resources (without memory problems)
+                \item \alert{Wiring}: Autonomous Decentralized P2P Telemetry   
+                \item \alert{USB to microUSB adapter}:      
+            \end{itemize}
         \end{itemize}
 
     \end{frame}
 
-    % \begin{frame}
-    %     \frametitle{标题}
-    %     \framesubtitle{子标题}
+\subsection{第 2 小节 Software components}
 
-    %     \begin{equation}
-    %         x^2+2x+1=(x+1)^2
-    %     \end{equation}
+    \begin{frame}
+        \frametitle{Software components}
+
+        \paragraph{Goal} Research decentralized access control solutions for IoT systems management
+
+        \begin{itemize}
+            \item \alert{Laptop with Linux Mint OS}: Decentralized Open Authentication (heavyweight for IoT)
+            \item \alert{Arduino IDE\cite{arduinoide}}: for non-constrained resources (without memory problems)
+
+            \item \alert{Libraries:}
+            \begin{itemize}
+                \item \alert{ESP8266}: Decentralized Open Authentication (heavyweight for IoT)
+                \item \alert{OneWire}: for non-constrained resources (without memory problems)
+                \item \alert{DallasTemperature}: Autonomous Decentralized P2P Telemetry   
+                \item \alert{ThingSpeak}:      
+            \end{itemize}
+        \end{itemize}
+
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Software components}
+
+        \paragraph{Goal} Research decentralized access control solutions for IoT systems management
+
+        % \begin{itemize}
+        %     \item \alert{Laptop with Linux Mint OS}: Decentralized Open Authentication (heavyweight for IoT)
+        %     \item \alert{Arduino IDE}: for non-constrained resources (without memory problems)\cite{arduinoide}
+        %     \item \alert{Libraries:}
+        %     \begin{itemize}
+        %         \item \alert{ESP8266}: Decentralized Open Authentication (heavyweight for IoT)
+        %         \item \alert{OneWire}: for non-constrained resources (without memory problems)
+        %         \item \alert{DallasTemperature}: Autonomous Decentralized P2P Telemetry   
+        %         \item \alert{ThingSpeak}:      
+        %     \end{itemize}
+        % \end{itemize}
+
+    \end{frame}
+
+\section{第 3 节 Development}
+
+\subsection{第 1 小节 Phase 1: IoT device setup \& Arduino IDE}
+
+    \begin{frame}
+        \frametitle{Phase 1: IoT device setup}
+
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{funnel-esp8266-3.png}
+            \end{stampbox}
+            \caption{General idea}
+        \end{figure}
         
-    % \end{frame}
-
-\section{第 2 节 IoT Access Control}
-
-\subsection{第 1 小节 Decentralized Access Control}
-
-    \begin{frame}
-        \frametitle{Decentralized Access Control}
-        
-        \paragraph{Goal} Research decentralized access control solutions for IoT systems management.\cite{ouaddah}
-
-        \begin{itemize}
-            \item \alert{DOAuth}: Decentralized Open Authentication (heavyweight for IoT)
-            \item \alert{FairAccess}: for non-constrained resources (without memory problems)
-            \item \alert{IBM Adept}: Autonomous Decentralized P2P Telemetry
-        \end{itemize}
-
-        \begin{block}{Scalability problem}
+        \begin{block}{General idea}
             Access management to billions of constrained IoT devices is quite a challenge. An easy-to-manage, generic and scalable solution is the goal.
         \end{block}
+
     \end{frame}
 
-\subsection{第 2 小节 Security issues}
-
     \begin{frame}
-        \frametitle{Current optimal solution}
+        \frametitle{Phase 1: Arduino IDE config}
         
-        \begin{block}{Scalable Access Management}
-            Because of scalability issues, a feasible solution proposes that access control policies are stored in the blockchain layer (smart contract). Threrefore, separating IoT devices with the blockchain\cite{novo}
-        \end{block}
-
-        \paragraph{Decision} Main advantages of this access control in IoT:
+        \paragraph{Board manager} Install \alert{esp8266} support (from ESP8266 Community)
 
         \begin{itemize}
-            \item \alert{Mobility}: encapsulating administrative domains
-            \item \alert{Accessibility}: policies always available
-            \item \alert{Concurrency}: many managers for each device
-            \item \alert{Lightweight}: devices straightforward plugin
-            \item \alert{Scalability}: directly connected to blockchain
-            \item \alert{Transparency}: locations and policies hidden
+            \item \alert{Upload rate}: 
+            \item \alert{Flashing size}: 
+            \item \alert{Port}: 
+        \end{itemize}
+
+        \begin{block}{Connecting to NodeMCU board}
+            Through wire USB (laptop) to microUSB (board)
+        \end{block}
+    \end{frame}
+
+    \begin{frame}[fragile]          % 注意添加 fragile 标记
+        \frametitle{Phase 1: Software libraries}
+        % 代码块参数：语言，标题
+        % 请减少代码初始的缩进
+        \begin{codeblock}[language=c]{C代码}
+#include <OneWire.h> //
+#include <DallasTemperature.h> //
+#include <ESP8266WiFi.h> //
+#include <ESP8266HTTPClient.h> //
+#include <ThingSpeak.h> //
+        \end{codeblock}
+    \end{frame}
+
+\subsection{第 2 小节 Phase 2: IoT platform (ThingSpeak)}
+
+    \begin{frame}
+        \frametitle{Phase 2: System design}
+        
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{thingspeak-schema.png}
+            \end{stampbox}
+            \caption{General idea}
+        \end{figure}
+
+        \paragraph{Features} Main advantages of this IoT platform:
+
+        \begin{itemize}
+            \item \alert{Database}: storing data
+            \item \alert{Graphing}: advanced statistics
+            \item \alert{Dashboard}: real-time IoT information
         \end{itemize}
     \end{frame}
 
-\subsection{第 3 小节 IoT architecture (I)}
-
     \begin{frame}
-        \frametitle{IoT architecture (I)}
+        \frametitle{Phase 2: ThingSpeak channel (public)}
 
-            \begin{figure}
-                \centering
-                \begin{stampbox}
-                    \includegraphics[height=0.5\textheight]{architecture.png}
-                \end{stampbox}
-                \caption{Decentralized Access Control Architecture\cite{novo}}
-            \end{figure}
-
-        % \begin{block}{Smart contract}
-        %     Access control management information is stored in the blockchain layer.\cite{novo}
-        % \end{block}
-        
         % \begin{figure}
         %     \centering
         %     \begin{stampbox}
-        %         \includegraphics[height=0.4\textheight]{architecture.png}
+        %         \includegraphics[height=0.5\textheight]{thingspeak-channel.png}
         %     \end{stampbox}
-        %     \caption{Decentralized Access Control Architecture}
+        %     \caption{General idea}
         % \end{figure}
-    \end{frame}
-
-    \begin{frame}
-        \frametitle{IoT architecture (II)}
-
-        \paragraph{Architecture} Components classification:
-
-        \begin{block}{Outside blockchain network}
-            \begin{itemize}
-                \item \alert{Wireless sensor networks}: IoT devices domain
-                \item \alert{Management hubs}: intermediary between devices and blockchain
-            \end{itemize}
-        \end{block}
+        
 
         \begin{block}{Inside blockchain network}
             \begin{itemize}
@@ -217,53 +240,165 @@
         \end{block}
     \end{frame}
 
-% \subsection{第 4 小节 IoT architecture (II)}
+    \begin{frame}
+        \frametitle{Phase 2: Sending data to ThingSpeak channel}
 
-%     \begin{frame}[fragile]          % 注意添加 fragile 标记
-%         \frametitle{代码块}
-%         % 代码块参数：语言，标题
-%         % 请减少代码初始的缩进
-%         \begin{codeblock}[language=c++]{C++代码}
-% #include<iostream>
-
-% int main(){
-%     // Console Output
-%     std::cout << "Hello, SJTU!" << std::endl;
-%     return 0;
-% }
-%         \end{codeblock}
-%     \end{frame}
-
-%     \begin{frame}
-%         \frametitle{图}
-%         \begin{figure}
-%             \centering
-%             \begin{stampbox}
-%                 \includegraphics[height=0.3\textheight]{plant.jpg}
-%             \end{stampbox}
-%             \caption{图片标题\cite{viman}}
-%         \end{figure}
-%     \end{frame}
-
-%     \begin{frame}
-%         \frametitle{表与统计图}
-%         \begin{multicols}{2}
-%         \begin{table}
-%             \caption{表格标题\cite{pgfplotstableman}}
-%             \pgfplotstabletypeset[
-%                 columns/Quick/.style={dec sep align},
-%                 columns/Cocktail/.style={dec sep align},
-%                 column type=r,
-%                 % fixed zerofill,
-%             ]{test.csv}
-%         \end{table}
+        % \begin{figure}
+        %     \centering
+        %     \begin{stampbox}
+        %         \includegraphics[height=0.5\textheight]{thingspeak-channel.png}
+        %     \end{stampbox}
+        %     \caption{General idea}
+        % \end{figure}
         
-%         \begin{figure}
-%             \input{testgraph.tex}
-%             \caption{统计图标题\cite{pgfplotsman}}
-%         \end{figure}
-%         \end{multicols}
-%     \end{frame}
+
+        \begin{block}{Inside blockchain network}
+            \begin{itemize}
+            \item \alert{Managers}: smart contract managing
+            \item \alert{Agent node}: smart contract access
+            \item \alert{Smart contract}: access control system rules
+            \item \alert{Blockchain network}: private
+            \end{itemize}
+        \end{block}
+    \end{frame}
+
+\subsection{第 3 小节 Phase 3: Node-RED as central manager}
+
+    \begin{frame}
+        \frametitle{Phase 3: Node-RED deployment}
+
+        \begin{block}{Node-RED as IoT network brain}
+            Intercommunication and orchestrating different IoT devices and cloud solutions
+        \end{block}
+
+        \paragraph{Goal} Components classification:
+
+        \begin{block}{Options}
+            \begin{itemize}
+                \item \alert{Local network deployment}: Raspberry Pi (common solution)
+                \item \alert{Cloud hosted node}: Fred
+            \end{itemize}
+        \end{block}
+
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Phase 3: Graphical flow}
+
+        \paragraph{Tool} Web code editor (mostly graphical)
+
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{nodered-flow.png}
+            \end{stampbox}
+            \caption{Decentralized Access Control Architecture}
+        \end{figure}
+
+        \begin{block}{Importing and exporting}
+            Access control management information is stored in the blockchain layer.
+        \end{block}
+        
+    \end{frame}
+
+\subsection{第 4 小节 Phase 4: Integrating Telegram bot}
+
+    \begin{frame}
+        \frametitle{Phase 4: Telegram web service configuration}
+
+        \begin{block}{Node-RED as IoT network brain}
+            Intercommunication and orchestrating different IoT devices and cloud solutions
+        \end{block}
+
+        \paragraph{Goal} Components classification:
+
+        \begin{block}{Options}
+            \begin{itemize}
+                \item \alert{Local network deployment}: Raspberry Pi (common solution)
+                \item \alert{Cloud hosted node}: Fred
+            \end{itemize}
+        \end{block}
+
+    \end{frame}
+
+    \begin{frame}
+     \frametitle{Phase 4: Integrating Telegram}
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{nodered-telegram.png}
+            \end{stampbox}
+            \caption{Decentralized Access Control Architecture}
+        \end{figure}
+
+        \begin{block}{Importing and exporting}
+            Access control management information is stored in the blockchain layer.
+        \end{block}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Phase 4: Sending data to ThingSpeak from Node-RED}
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.3\textheight]{plant.jpg}
+            \end{stampbox}
+            \caption{图片标题}
+        \end{figure}
+    \end{frame}
+
+\subsection{第 5 小节 Issues}
+
+    \begin{frame}
+        \frametitle{Issues: hardware}
+
+        \begin{block}{Hardware: resistor 4.7K}
+            After buying a starter electronic kit, I realized there was no 4.7K resistor included (recommended for sensor DS18B20). I was afraid of damaging electronic components
+        \end{block}
+
+        \begin{block}{Possible solutions}
+            \begin{itemize}
+                \item \alert{Parallel resistors}: 2 10K resistors
+                \item \alert{Serial resistors}: several resistors adding about 4.7K
+            \end{itemize}
+        \end{block}
+
+        \begin{block}{Final solution: power supply MB102}
+            When connecting a power supply module to the breadboard, energy supply is more accurate (\~5V). Then, an exact resistor value is not so important. A 5.1K resistor is good enough (some tolerance in limits)
+        \end{block}
+
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Issues: software}
+
+        \begin{block}{Software: kernel module CH341}
+            Hola
+            % Initially my Linux OS was not recognizing NodeMCU board through USB wire. Finally I found solution\cite{ch341}: I needed to update a kernel module \alert{ch341} in charge or serial USB communication.
+        \end{block}
+    \end{frame}
+
+
+    % \begin{frame}
+    %     \frametitle{Extra}
+        
+    %     \begin{multicols}{2}
+    %     \begin{table}
+    %         \caption{表格标题}
+    %         \pgfplotstabletypeset[
+    %             columns/Quick/.style={dec sep align},
+    %             columns/Cocktail/.style={dec sep align},
+    %             column type=r,
+    %             % fixed zerofill,
+    %         ]{test.csv}
+    %     \end{table}
+        
+    %     \begin{figure}
+    %         \input{testgraph.tex}
+    %         \caption{统计图标题}
+    %     \end{figure}
+    %     \end{multicols}
+    % \end{frame}
 
 
 % gbt=bibtex
