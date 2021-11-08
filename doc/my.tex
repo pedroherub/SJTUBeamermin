@@ -66,7 +66,7 @@
 
     \end{frame}
 
-\subsection{第 2 小节 General project design}
+\subsection{第 2 小节 Context: general project design}
 
     \begin{frame}
         \frametitle{General project design}
@@ -150,7 +150,7 @@
 
 \section{第 3 节 Development}
 
-\subsection{第 1 小节 Phase 1: IoT device setup \& Arduino IDE}
+\subsection{Phase 1: IoT device setup}
 
     \begin{frame}
         \frametitle{Phase 1: IoT device setup}
@@ -169,6 +169,8 @@
 
     \end{frame}
 
+\subsection{Phase 1: Arduino IDE config}
+
     \begin{frame}
         \frametitle{Phase 1: Arduino IDE config}
         
@@ -185,6 +187,8 @@
         \end{block}
     \end{frame}
 
+\subsection{Phase 1: Software libraries}
+
     \begin{frame}[fragile]          % 注意添加 fragile 标记
         \frametitle{Phase 1: Software libraries}
         % 代码块参数：语言，标题
@@ -198,10 +202,10 @@
         \end{codeblock}
     \end{frame}
 
-\subsection{第 2 小节 Phase 2: IoT platform (ThingSpeak)}
+\subsection{Phase 2: IoT platform (ThingSpeak)}
 
     \begin{frame}
-        \frametitle{Phase 2: System design}
+        \frametitle{Phase 2: IoT platform (ThingSpeak) - System design}
         
         \begin{figure}
             \centering
@@ -220,8 +224,10 @@
         \end{itemize}
     \end{frame}
 
+\subsection{Phase 2: IoT platform (ThingSpeak) - Data channel (public)}
+
     \begin{frame}
-        \frametitle{Phase 2: ThingSpeak channel (public)}
+        \frametitle{Phase 2: IoT platform (ThingSpeak) - Data channel (public)}
 
         % \begin{figure}
         %     \centering
@@ -242,8 +248,10 @@
         \end{block}
     \end{frame}
 
+\subsection{Phase 2: IoT platform (ThingSpeak) - Sending sensor data channel}
+
     \begin{frame}
-        \frametitle{Phase 2: Sending data to ThingSpeak channel}
+        \frametitle{Phase 2: IoT platform (ThingSpeak) - Sending sensor data channel}
 
         % \begin{figure}
         %     \centering
@@ -264,10 +272,10 @@
         \end{block}
     \end{frame}
 
-\subsection{第 3 小节 Phase 3: Node-RED as central manager}
+\subsection{Phase 3: Node-RED as central manager - Deployment}
 
     \begin{frame}
-        \frametitle{Phase 3: Node-RED deployment}
+        \frametitle{Phase 3: Node-RED as central manager - Deployment}
 
         \begin{block}{Node-RED as IoT network brain}
             Intercommunication and orchestrating different IoT devices and cloud solutions
@@ -284,8 +292,10 @@
 
     \end{frame}
 
+\subsection{Phase 3: Node-RED as central manager - Graphical flow}
+
     \begin{frame}
-        \frametitle{Phase 3: Graphical flow}
+        \frametitle{Phase 3: Node-RED as central manager - Graphical flow}
 
         \paragraph{Tool} Web code editor (mostly graphical)
 
@@ -303,10 +313,10 @@
         
     \end{frame}
 
-\subsection{第 4 小节 Phase 4: Integrating Telegram bot}
+\subsection{Phase 4: Telegram bot - Web service configuration}
 
     \begin{frame}
-        \frametitle{Phase 4: Telegram web service configuration}
+        \frametitle{Phase 4: Telegram bot - Web service configuration}
 
         \begin{block}{Node-RED as IoT network brain}
             Intercommunication and orchestrating different IoT devices and cloud solutions
@@ -323,8 +333,10 @@
 
     \end{frame}
 
+\subsection{Phase 4: Telegram bot - Flow integration}
+
     \begin{frame}
-     \frametitle{Phase 4: Integrating Telegram}
+     \frametitle{Phase 4: Telegram bot - Flow integration}
         \begin{figure}
             \centering
             \begin{stampbox}
@@ -338,8 +350,10 @@
         \end{block}
     \end{frame}
 
+\subsection{Phase 4: Telegram bot - Sending data to ThingSpeak from Node-RED}
+
     \begin{frame}
-        \frametitle{Phase 4: Sending data to ThingSpeak from Node-RED}
+        \frametitle{Phase 4: Telegram bot - Sending data to ThingSpeak from Node-RED}
         \begin{figure}
             \centering
             \begin{stampbox}
@@ -349,9 +363,7 @@
         \end{figure}
     \end{frame}
 
-\subsection{第 5 小节 Issues}
-
-\subsubsection{Issues: hardware}
+\subsection{Issues: hardware}
 
     \begin{frame}
         \frametitle{Issues: hardware}
@@ -373,7 +385,7 @@
 
     \end{frame}
 
-\subsubsection{Issues: software}
+\subsection{Issues: software}
 
     \begin{frame}
         \frametitle{Issues: software}
