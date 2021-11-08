@@ -265,9 +265,7 @@
             Intercommunicating and orchestrating different IoT devices and cloud solutions (solving the lack of standarization among IoT vendors)
         \end{block}
 
-        \paragraph{Deployment} Posible solutions:
-
-        \begin{block}{Options}
+        \begin{block}{Posible solutions}
             \begin{itemize}
                 \item \alert{Local network deployment}: Raspberry Pi (common solution)
                 \item \alert{Cloud hosted node}: FRED\cite{servicesFred} (chosen solution)
@@ -303,10 +301,10 @@
     \begin{frame}
         \frametitle{Phase 3: Node-RED manager - Graphical flow (II)}
 
-        \paragraph{API endpoint} External requests (from IoT devices) initialize the whole process by sending sensor data to this input API receiver. Example: \url{https://pedroherub.fred.sensetecnic.com/api/public/temperature?temp=25}
+        \paragraph{API endpoint} External requests (from IoT devices) initialize the whole process by sending sensor data to this input API receiver $\rightarrow$  \url{https://pedroherub.fred.sensetecnic.com/api/public/temperature?temp=25}
 
         \begin{block}{Decision process}
-            IoT device send temperature data to the Node-RED instance each 16 seconds. Performing decision:
+            IoT device sends temperature data to the Node-RED instance every 16 seconds and updating process info through serial monitor. Performing decision:
             \begin{itemize}
                 \item \alert{Coffee not ready}: Temperature $<=$ 90 degrees (wait)
                 \item \alert{Coffe finished!}: Temperature $>$ 90 degrees (alert message)
