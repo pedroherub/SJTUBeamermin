@@ -125,7 +125,7 @@
 \subsection{Phase 1: IoT device setup}
 
     \begin{frame}
-        \frametitle{Phase 1: IoT device setup}
+        \frametitle{Phase 1: Setup - IoT device}
 
         \begin{columns}[T,onlytextwidth]
             \column{0.4\textwidth}
@@ -150,7 +150,7 @@
 \subsection{Phase 1: Arduino IDE config}
 
     \begin{frame}
-        \frametitle{Phase 1: Arduino IDE config}
+        \frametitle{Phase 1: Setup - Arduino IDE config}
         
         \paragraph{Board manager} Install \alert{esp8266} support (from ESP8266 Community)
 
@@ -172,7 +172,7 @@
 \subsection{Phase 1: Software libraries}
 
     \begin{frame}[fragile]          % 注意添加 fragile 标记
-        \frametitle{Phase 1: Software libraries}
+        \frametitle{Phase 1: Setup - Software libraries}
         % 代码块参数：语言，标题
         % 请减少代码初始的缩进
         \begin{codeblock}[language=c]{C代码}
@@ -262,18 +262,57 @@
         \frametitle{Phase 3: Node-RED manager - Deployment}
 
         \begin{block}{Node-RED as IoT network brain}
-            Intercommunication and orchestrating different IoT devices and cloud solutions
+            Intercommunicating and orchestrating different IoT devices and cloud solutions (solving the lack of standarization among IoT vendors)
         \end{block}
 
-        \paragraph{Goal} Components classification:
+        \paragraph{Deployment} Posible solutions:
 
         \begin{block}{Options}
             \begin{itemize}
                 \item \alert{Local network deployment}: Raspberry Pi (common solution)
-                \item \alert{Cloud hosted node}: Fred
+                \item \alert{Cloud hosted node}: FRED\cite{servicesFred} (chosen solution)
             \end{itemize}
         \end{block}
 
+        \begin{block}{FRED}
+            Frontend for Node-RED manages instances of Node-RED for multiple users in the cloud
+        \end{block}
+
+    \end{frame}
+
+
+\subsection{Phase 3: Node-RED manager - Graphical flow}
+
+    \begin{frame}
+        \frametitle{Phase 3: Node-RED manager - Graphical flow (I)}
+
+        \paragraph{Tool} Web code editor (mostly graphical for simple projects)
+
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{nodered-flow.png}
+            \end{stampbox}
+            \caption{Flow management}
+        \end{figure}
+        
+    \end{frame}
+
+\subsection{Phase 3: Node-RED manager - Graphical flow}
+
+    \begin{frame}
+        \frametitle{Phase 3: Node-RED manager - Graphical flow (II)}
+
+        \paragraph{API endpoint} External requests (from IoT devices) initialize the whole process by sending sensor data to this input API receiver. Example: \url{https://pedroherub.fred.sensetecnic.com/api/public/temperature?temp=25}
+
+        \begin{block}{Decision process}
+            IoT device send temperature data to the Node-RED instance each 16 seconds. Performing decision:
+            \begin{itemize}
+                \item \alert{Coffee not ready}: Temperature $<=$ 90 degrees (wait)
+                \item \alert{Coffe finished!}: Temperature $>$ 90 degrees (alert message)
+            \end{itemize}
+        \end{block}
+        
     \end{frame}
 
 \subsection{Phase 3: Node-RED manager - Serial monitor}
@@ -286,31 +325,9 @@
             \begin{stampbox}
                 \includegraphics[height=0.5\textheight]{serial-monitor.png}
             \end{stampbox}
-            \caption{Data monitor: process info}
+            \caption{Data monitor: process info from serial USB}
         \end{figure}
 
-    \end{frame}
-
-
-\subsection{Phase 3: Node-RED manager - Graphical flow}
-
-    \begin{frame}
-        \frametitle{Phase 3: Node-RED manager - Graphical flow}
-
-        \paragraph{Tool} Web code editor (mostly graphical)
-
-        \begin{figure}
-            \centering
-            \begin{stampbox}
-                \includegraphics[height=0.5\textheight]{nodered-flow.png}
-            \end{stampbox}
-            \caption{Decentralized Access Control Architecture}
-        \end{figure}
-
-        \begin{block}{Importing and exporting}
-            Access control management information is stored in the blockchain layer.
-        \end{block}
-        
     \end{frame}
 
 \subsection{Phase 4: Telegram bot - Web service configuration}
