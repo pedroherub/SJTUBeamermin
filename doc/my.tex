@@ -93,15 +93,14 @@
         \paragraph{Goal} Research decentralized access control solutions for IoT systems management
 
         \begin{itemize}
-            \item \alert{NodeMCU}: IoT board containing ESP8266 as SoC
-            \item \alert{Temperature sensor DS18B20}: for non-constrained resources (without memory problems)
-            \item \alert{Power supply module MB102}: Autonomous Decentralized P2P Telemetry
+            \item \alert{NodeMCU\cite{nodemcu}}: low-cost open source IoT board with ESP8266 SoC
+            \item \alert{Temperature sensor DS18B20\cite{ds18b20}}: for non-constrained resources (without memory problems)
+            \item \alert{Power supply module MB102}: low-cost 3.3V\~5V supply
             \item \alert{Others:}
             \begin{itemize}
-                \item \alert{Breadboard}: Decentralized Open Authentication (heavyweight for IoT)
-                \item \alert{Resistor}: for non-constrained resources (without memory problems)
-                \item \alert{Wiring}: Autonomous Decentralized P2P Telemetry   
-                \item \alert{USB to microUSB adapter}:      
+                \item \alert{Breadboard}: for components' wiring and fixing
+                \item \alert{Resistor}: 5.1K (4.7K recommended for sensor)
+                \item \alert{USB to microUSB adapter}: uploading code to flash memeory in board      
             \end{itemize}
         \end{itemize}
 
@@ -112,39 +111,12 @@
     \begin{frame}
         \frametitle{Software components}
 
-        \paragraph{Goal} Research decentralized access control solutions for IoT systems management
+        \paragraph{Coding setup} Research decentralized access control solutions for IoT systems management
 
         \begin{itemize}
-            \item \alert{Laptop with Linux Mint OS}: Decentralized Open Authentication (heavyweight for IoT)
-            \item \alert{Arduino IDE\cite{arduinoide}}: for non-constrained resources (without memory problems)
-
-            \item \alert{Libraries:}
-            \begin{itemize}
-                \item \alert{ESP8266}: Decentralized Open Authentication (heavyweight for IoT)
-                \item \alert{OneWire}: for non-constrained resources (without memory problems)
-                \item \alert{DallasTemperature}: Autonomous Decentralized P2P Telemetry   
-                \item \alert{ThingSpeak}:      
-            \end{itemize}
+            \item \alert{Linux Mint OS}: Linux OS distribution based in Ubuntu flavour.
+            \item \alert{Arduino IDE\cite{arduinoide}}: Version 1.8.16 for Linux OS distributions. NodeMCU is a so popular electronic board that Arduino IDE provides support for it. Same core and external libraries for Arduino programming environment are available.
         \end{itemize}
-
-    \end{frame}
-
-    \begin{frame}
-        \frametitle{Software components}
-
-        \paragraph{Goal} Research decentralized access control solutions for IoT systems management
-
-        % \begin{itemize}
-        %     \item \alert{Laptop with Linux Mint OS}: Decentralized Open Authentication (heavyweight for IoT)
-        %     \item \alert{Arduino IDE}: for non-constrained resources (without memory problems)\cite{arduinoide}
-        %     \item \alert{Libraries:}
-        %     \begin{itemize}
-        %         \item \alert{ESP8266}: Decentralized Open Authentication (heavyweight for IoT)
-        %         \item \alert{OneWire}: for non-constrained resources (without memory problems)
-        %         \item \alert{DallasTemperature}: Autonomous Decentralized P2P Telemetry   
-        %         \item \alert{ThingSpeak}:      
-        %     \end{itemize}
-        % \end{itemize}
 
     \end{frame}
 
@@ -194,11 +166,11 @@
         % 代码块参数：语言，标题
         % 请减少代码初始的缩进
         \begin{codeblock}[language=c]{C代码}
-#include <OneWire.h> //
-#include <DallasTemperature.h> //
-#include <ESP8266WiFi.h> //
-#include <ESP8266HTTPClient.h> //
-#include <ThingSpeak.h> //
+#include <OneWire.h> // For one wire communication with sensor DS18B20
+#include <DallasTemperature.h> // For sensor DS18B20 (propietary enterprise)
+#include <ESP8266WiFi.h> // For WiFi connection management
+#include <ESP8266HTTPClient.h> // API for easy HTTP requests
+#include <ThingSpeak.h> // Cloud IoT platform
         \end{codeblock}
     \end{frame}
 
@@ -391,7 +363,12 @@
         \frametitle{Issues: software}
 
         \begin{block}{Software: kernel module CH341}
-            Initially my Linux OS was not recognizing NodeMCU board through USB wire. Finally I found solution\cite{ch341}: I needed to update a kernel module \alert{ch341.c} in charge or serial USB communication.
+            Initially my Linux OS was not recognizing NodeMCU board through USB wire. Finally I found solution.\cite{ch341} I needed to update a kernel module \alert{ch341.c} in charge or serial USB communication:
+            \begin{itemize}
+                \item Downloading kernel module new source
+                \item Compiling the kernel module
+                \item Upgrading the current loaded kernel module
+            \end{itemize}
         \end{block}
 
 % \begin{codeblock}[language=bash,numbers=none]{Shell命令}
