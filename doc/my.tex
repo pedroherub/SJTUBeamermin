@@ -333,17 +333,14 @@
     \begin{frame}
         \frametitle{Phase 4: Telegram bot - Web service configuration}
 
-        \begin{block}{Node-RED as IoT network brain}
-            Intercommunication and orchestrating different IoT devices and cloud solutions
+        \paragraph{Goal} Integrating a Telegram bot (chat with commands) to send messages from Node-RED (when coffee has finished)
+
+        \begin{block}{Telegram bot creation}
+            Easy process with BotFather\cite{botfather} (a metabot). Mine is name \alert{CoffeeMakerTemperature}. Hybrid between a normal chat and a command line
         \end{block}
 
-        \paragraph{Goal} Components classification:
-
-        \begin{block}{Options}
-            \begin{itemize}
-                \item \alert{Local network deployment}: Raspberry Pi (common solution)
-                \item \alert{Cloud hosted node}: Fred
-            \end{itemize}
+        \begin{block}{Final stage}
+            Node-RED is constantly sending data to ThingSpeak for all temperature data received (for data archiving) and sends a message to the Telegram bot (web service) whenever coffee is ready
         \end{block}
 
     \end{frame}
@@ -357,26 +354,22 @@
             \begin{stampbox}
                 \includegraphics[height=0.5\textheight]{nodered-telegram.png}
             \end{stampbox}
-            \caption{Decentralized Access Control Architecture}
-        \end{figure}
-
-        \begin{block}{Importing and exporting}
-            Access control management information is stored in the blockchain layer.
-        \end{block}
-    \end{frame}
-
-\subsection{Phase 4: Telegram bot - Sending data to ThingSpeak from Node-RED}
-
-    \begin{frame}
-        \frametitle{Phase 4: Telegram bot - Sending data to ThingSpeak from Node-RED}
-        \begin{figure}
-            \centering
-            \begin{stampbox}
-                \includegraphics[height=0.3\textheight]{plant.jpg}
-            \end{stampbox}
-            \caption{图片标题}
+            \caption{Node-RED talks with ThingSpeak channel and Telegram bot}
         \end{figure}
     \end{frame}
+
+% \subsection{Phase 4: Telegram bot - Sending data to ThingSpeak from Node-RED}
+
+%     \begin{frame}
+%         \frametitle{Phase 4: Telegram bot - Receiving alert message}
+%         \begin{figure}
+%             \centering
+%             \begin{stampbox}
+%                 \includegraphics[height=0.6\textheight]{telegram-alert.png}
+%             \end{stampbox}
+%             \caption{Telegram Desktop application}
+%         \end{figure}
+%     \end{frame}
 
 \subsection{Issues: hardware}
 
