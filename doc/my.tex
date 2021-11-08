@@ -127,17 +127,19 @@
     \begin{frame}
         \frametitle{Phase 1: IoT device setup}
 
+        \begin{multicols}{2}
+        \begin{block}{IoT device setup}
+            Connection through 3 wires: data pin D5 (read temperature), ground and supply.
+        \end{block}
+        
         \begin{figure}
             \centering
             \begin{stampbox}
                 \includegraphics[height=0.5\textheight]{funnel-esp8266-3.png}
             \end{stampbox}
-            \caption{General idea}
+            \caption{NodeMCU and DS18B20}
         \end{figure}
-        
-        \begin{block}{General idea}
-            Access management to billions of constrained IoT devices is quite a challenge. An easy-to-manage, generic and scalable solution is the goal.
-        \end{block}
+        \end{multicols}
 
     \end{frame}
 
@@ -149,12 +151,12 @@
         \paragraph{Board manager} Install \alert{esp8266} support (from ESP8266 Community)
 
         \begin{itemize}
-            \item \alert{Upload rate}: 
-            \item \alert{Flashing size}: 
-            \item \alert{Port}: 
+            \item \alert{Upload rate}: 115200 (not fast but reliable)
+            \item \alert{Flashing size}: 4MB (2MB for filesystem)
+            \item \alert{Port}: /dev/tty0 (Linux USB)
         \end{itemize}
 
-        \begin{block}{Connecting to NodeMCU board}
+        \begin{block}{Serial communication}
             Through wire USB (laptop) to microUSB (board)
         \end{block}
     \end{frame}
@@ -364,11 +366,11 @@
 
         \begin{block}{Software: kernel module CH341}
             Initially my Linux OS was not recognizing NodeMCU board through USB wire. Finally I found solution.\cite{ch341} I needed to update a kernel module \alert{ch341.c} in charge or serial USB communication:
-            \begin{itemize}
+            \begin{enumerate}
                 \item Downloading kernel module new source
                 \item Compiling the kernel module
                 \item Upgrading the current loaded kernel module
-            \end{itemize}
+            \end{enumerate}
         \end{block}
 
 % \begin{codeblock}[language=bash,numbers=none]{Shell命令}
@@ -378,26 +380,26 @@
     \end{frame}
 
 
-    % \begin{frame}
-    %     \frametitle{Extra}
+    \begin{frame}
+        \frametitle{Extra}
         
-    %     \begin{multicols}{2}
-    %     \begin{table}
-    %         \caption{表格标题}
-    %         \pgfplotstabletypeset[
-    %             columns/Quick/.style={dec sep align},
-    %             columns/Cocktail/.style={dec sep align},
-    %             column type=r,
-    %             % fixed zerofill,
-    %         ]{test.csv}
-    %     \end{table}
+        \begin{multicols}{2}
+        \begin{table}
+            \caption{表格标题}
+            \pgfplotstabletypeset[
+                columns/Quick/.style={dec sep align},
+                columns/Cocktail/.style={dec sep align},
+                column type=r,
+                % fixed zerofill,
+            ]{test.csv}
+        \end{table}
         
-    %     \begin{figure}
-    %         \input{testgraph.tex}
-    %         \caption{统计图标题}
-    %     \end{figure}
-    %     \end{multicols}
-    % \end{frame}
+        \begin{figure}
+            \input{testgraph.tex}
+            \caption{统计图标题}
+        \end{figure}
+        \end{multicols}
+    \end{frame}
 
 
 % gbt=bibtex
