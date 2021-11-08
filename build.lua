@@ -14,26 +14,7 @@ docfiledir       = "doc"
 typesetexe       = "xelatex"
 typesetfiles     = {"sjtubeamermintheme.tex","sjtubeamermindevguide.tex"}
 typesetdemofiles = {"red.tex","blue.tex","my.tex"}
-typesetsuppfiles = {
-                        "coffeemaker.jpeg",
-                        "esquema-general.png",
-                        "funnel-esp8266-3.png",
-                        "serial-monitor.png",
-                        "thingspeak-schema.png",
-                        "thingspeak-channel.png",
-                        "thingspeak-coffeemaker.png",
-                        "serial-monitor.png",
-                        "nodered-flow.png",
-                        "nodered-telegram.png",
-                        "head.png",
-                        "plant.jpg",
-                        "test.csv",
-                        "testgraph.tex",
-                        "ref.bib",
-                        "cnlogored.pdf",
-                        "enlogored.pdf", 
-                        "architecture.png"
-                    }
+typesetsuppfiles = {"head.png","plant.jpg","test.csv","testgraph.tex","ref.bib","cnlogored.pdf","enlogored.pdf", "architecture.png"}
 
 testfiledir      = "test"
 checkengines     = {"xetex"}
