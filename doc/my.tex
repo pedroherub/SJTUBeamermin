@@ -127,19 +127,20 @@
     \begin{frame}
         \frametitle{Phase 1: IoT device setup}
 
-        \begin{multicols}{2}
-        \begin{block}{IoT device setup}
-            Connection through 3 wires: data pin D5 (read temperature), ground and supply.
-        \end{block}
-        
-        \begin{figure}
-            \centering
-            \begin{stampbox}
-                \includegraphics[height=0.5\textheight]{funnel-esp8266-3.png}
-            \end{stampbox}
-            \caption{NodeMCU and DS18B20}
-        \end{figure}
-        \end{multicols}
+        \begin{columns}[T,onlytextwidth]
+            \column{0.4\textwidth}
+              \begin{block}{IoT device setup}
+                    Connection through 3 wires: data pin D5 (read temperature), ground and supply.
+                \end{block}
+            \column{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \begin{stampbox}
+                    \includegraphics[height=0.5\textheight]{funnel-esp8266-3.png}
+                \end{stampbox}
+                \caption{NodeMCU and DS18B20}
+            \end{figure}        
+        \end{columns}
 
     \end{frame}
 
@@ -150,14 +151,16 @@
         
         \paragraph{Board manager} Install \alert{esp8266} support (from ESP8266 Community)
 
+        \paragraph{Select board} Tools -> NodeMCU 1.0 (ESP 12-E Module)
+
         \begin{itemize}
             \item \alert{Upload rate}: 115200 (not fast but reliable)
             \item \alert{Flashing size}: 4MB (2MB for filesystem)
-            \item \alert{Port}: /dev/tty0 (Linux USB)
+            \item \alert{Port}: /dev/ttyUSB0 (Linux USB)
         \end{itemize}
 
         \begin{block}{Serial communication}
-            Through wire USB (laptop) to microUSB (board)
+            Through wire USB (laptop) to microUSB (board) -> allowing code uploading to Flash memorey and serial monitor communication
         \end{block}
     \end{frame}
 
@@ -201,55 +204,48 @@
 \subsection{Phase 2: IoT platform (ThingSpeak) - Data channel (public)}
 
     \begin{frame}
-        \frametitle{Phase 2: IoT platform (ThingSpeak) - Data channel (public)}
+        \frametitle{Phase 2: IoT platform (ThingSpeak) - Data channel}
 
-        % \begin{figure}
-        %     \centering
-        %     \begin{stampbox}
-        %         \includegraphics[height=0.5\textheight]{thingspeak-channel.png}
-        %     \end{stampbox}
-        %     \caption{General idea}
-        % \end{figure}
+        \begin{columns}[T,onlytextwidth]
+            \column{0.4\textwidth}
+              \begin{block}{Coffemaker channel}
+                    Connection through 3 wires: data pin D5 (read temperature), ground and supply.
+                \end{block}
+            \column{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \begin{stampbox}
+                    \includegraphics[height=0.5\textheight]{thingspeak-channel.png}
+                \end{stampbox}
+                \caption{Public channel}
+            \end{figure}        
+        \end{columns}
+
+    \end{frame}
+
+\subsection{Phase 2: IoT platform (ThingSpeak) - Sending sensor data}
+
+    \begin{frame}
+        \frametitle{Phase 2: IoT platform (ThingSpeak) - Sending sensor data}
+
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{thingspeak-coffeemaker.png}
+            \end{stampbox}
+            \caption{Coffeemaker lifycycle}
+        \end{figure}
         
 
-        \begin{block}{Inside blockchain network}
-            \begin{itemize}
-            \item \alert{Managers}: smart contract managing
-            \item \alert{Agent node}: smart contract access
-            \item \alert{Smart contract}: access control system rules
-            \item \alert{Blockchain network}: private
-            \end{itemize}
+        \begin{block}{ThingSpeak dashboard}
+            Coffemaker spent when coffee was boiled (\~90 degrees)
         \end{block}
     \end{frame}
 
-\subsection{Phase 2: IoT platform (ThingSpeak) - Sending sensor data channel}
+\subsection{Phase 3: Node-RED manager - Deployment}
 
     \begin{frame}
-        \frametitle{Phase 2: IoT platform (ThingSpeak) - Sending sensor data channel}
-
-        % \begin{figure}
-        %     \centering
-        %     \begin{stampbox}
-        %         \includegraphics[height=0.5\textheight]{thingspeak-channel.png}
-        %     \end{stampbox}
-        %     \caption{General idea}
-        % \end{figure}
-        
-
-        \begin{block}{Inside blockchain network}
-            \begin{itemize}
-            \item \alert{Managers}: smart contract managing
-            \item \alert{Agent node}: smart contract access
-            \item \alert{Smart contract}: access control system rules
-            \item \alert{Blockchain network}: private
-            \end{itemize}
-        \end{block}
-    \end{frame}
-
-\subsection{Phase 3: Node-RED as central manager - Deployment}
-
-    \begin{frame}
-        \frametitle{Phase 3: Node-RED as central manager - Deployment}
+        \frametitle{Phase 3: Node-RED manager - Deployment}
 
         \begin{block}{Node-RED as IoT network brain}
             Intercommunication and orchestrating different IoT devices and cloud solutions
@@ -266,10 +262,26 @@
 
     \end{frame}
 
-\subsection{Phase 3: Node-RED as central manager - Graphical flow}
+\subsection{Phase 3: Node-RED manager - Serial monitor}
 
     \begin{frame}
-        \frametitle{Phase 3: Node-RED as central manager - Graphical flow}
+        \frametitle{Phase 3: Node-RED manager - Serial monitor}
+
+        \begin{figure}
+            \centering
+            \begin{stampbox}
+                \includegraphics[height=0.5\textheight]{serial-monitor.png}
+            \end{stampbox}
+            \caption{Data monitor: process info}
+        \end{figure}
+
+    \end{frame}
+
+
+\subsection{Phase 3: Node-RED manager - Graphical flow}
+
+    \begin{frame}
+        \frametitle{Phase 3: Node-RED manager - Graphical flow}
 
         \paragraph{Tool} Web code editor (mostly graphical)
 
@@ -380,26 +392,50 @@
     \end{frame}
 
 
-    \begin{frame}
-        \frametitle{Extra}
+    % \begin{frame}
+    %     \frametitle{Extra}
+
+    %     \begin{columns}[T,onlytextwidth]
+    %         \column{0.4\textwidth}
+    %         \metroset{block=fill}
+    %           \begin{exampleblock}{UI}
+    %             Estilo similar a Google Calendar
+    %           \end{exampleblock}
+    %           \begin{exampleblock}{Acciones}
+    %             \begin{itemize}
+    %                 \item Crear nueva
+    %                 \item Ver detalle
+    %                 \item Actualizar
+    %                 \item Eliminar
+    %             \end{itemize}
+    %           \end{exampleblock}
+    %           \begin{exampleblock}{Bonus}
+    %             Drag \& resize
+    %           \end{exampleblock}
+    %         \column{0.5\textwidth}
+    %         \begin{center}
+    %             \includegraphics[height=.7\textheight]{balsamiq/calls1.png}\hfill
+    %         \end{center}
+            
+    %     \end{columns}
         
-        \begin{multicols}{2}
-        \begin{table}
-            \caption{表格标题}
-            \pgfplotstabletypeset[
-                columns/Quick/.style={dec sep align},
-                columns/Cocktail/.style={dec sep align},
-                column type=r,
-                % fixed zerofill,
-            ]{test.csv}
-        \end{table}
+    %     \begin{multicols}{2}
+    %     \begin{table}
+    %         \caption{表格标题}
+    %         \pgfplotstabletypeset[
+    %             columns/Quick/.style={dec sep align},
+    %             columns/Cocktail/.style={dec sep align},
+    %             column type=r,
+    %             % fixed zerofill,
+    %         ]{test.csv}
+    %     \end{table}
         
-        \begin{figure}
-            \input{testgraph.tex}
-            \caption{统计图标题}
-        \end{figure}
-        \end{multicols}
-    \end{frame}
+    %     \begin{figure}
+    %         \input{testgraph.tex}
+    %         \caption{统计图标题}
+    %     \end{figure}
+    %     \end{multicols}
+    % \end{frame}
 
 
 % gbt=bibtex
