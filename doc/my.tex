@@ -128,15 +128,18 @@
         \frametitle{Phase 1: IoT device setup}
 
         \begin{columns}[T,onlytextwidth]
-            \column{0.4\textwidth}
+            \column{0.3\textwidth}
               \begin{block}{IoT device setup}
-                    Connection through 3 wires: data pin D5 (read temperature), ground and supply.
+                    Connection between NodeMCU board and sensor DS18B20 through 3 wires: data pin D5 (read temperature), ground and supply.
                 \end{block}
-            \column{0.5\textwidth}
+                \begin{block}{[optional] power supply}
+                    For IoT device autonomy, a power supply MB102 can be attached to the device (Supplying around 3.3V an 5.V for the sensor,  higher power could produce damages)
+                \end{block}
+            \column{0.6\textwidth}
             \begin{figure}
                 \centering
                 \begin{stampbox}
-                    \includegraphics[height=0.5\textheight]{funnel-esp8266-3.png}
+                    \includegraphics[height=0.6\textheight]{funnel-esp8266-3.png}
                 \end{stampbox}
                 \caption{NodeMCU and DS18B20}
             \end{figure}        
@@ -153,6 +156,8 @@
 
         \paragraph{Select board} Tools -> NodeMCU 1.0 (ESP 12-E Module)
 
+        \paragraph{Arduino IDE} Other board settings: 
+
         \begin{itemize}
             \item \alert{Upload rate}: 115200 (not fast but reliable)
             \item \alert{Flashing size}: 4MB (2MB for filesystem)
@@ -160,7 +165,7 @@
         \end{itemize}
 
         \begin{block}{Serial communication}
-            Through wire USB (laptop) to microUSB (board) -> allowing code uploading to Flash memorey and serial monitor communication
+            Through wire USB (laptop) to microUSB (board) -> allowing code uploading to Flash memory (after compilation) and serial monitor communication
         \end{block}
     \end{frame}
 
@@ -183,22 +188,27 @@
 
     \begin{frame}
         \frametitle{Phase 2: IoT platform (ThingSpeak) - System design}
-        
-        \begin{figure}
-            \centering
-            \begin{stampbox}
-                \includegraphics[height=0.5\textheight]{thingspeak-schema.png}
-            \end{stampbox}
-            \caption{General idea}
-        \end{figure}
 
-        \paragraph{Features} Main advantages of this IoT platform:
+        \begin{columns}[T,onlytextwidth]
+            \column{0.3\textwidth}
+              \begin{block}{ThingSpeak features}
+                Main advantages of this IoT platform:
+                \begin{itemize}
+                    \item \alert{Database}: storing data
+                    \item \alert{Graphing}: advanced statistics
+                    \item \alert{Dashboard}: real-time IoT information
+                \end{itemize}
+              \end{block}
+            \column{0.6\textwidth}
+            \begin{figure}
+                \centering
+                \begin{stampbox}
+                    \includegraphics[height=0.5\textheight]{thingspeak-schema.png}
+                \end{stampbox}
+                \caption{IoT platform}
+            \end{figure}       
+        \end{columns}
 
-        \begin{itemize}
-            \item \alert{Database}: storing data
-            \item \alert{Graphing}: advanced statistics
-            \item \alert{Dashboard}: real-time IoT information
-        \end{itemize}
     \end{frame}
 
 \subsection{Phase 2: IoT platform (ThingSpeak) - Data channel (public)}
@@ -207,11 +217,15 @@
         \frametitle{Phase 2: IoT platform (ThingSpeak) - Data channel}
 
         \begin{columns}[T,onlytextwidth]
-            \column{0.4\textwidth}
+            \column{0.3\textwidth}
               \begin{block}{Coffemaker channel}
-                    Connection through 3 wires: data pin D5 (read temperature), ground and supply.
-                \end{block}
-            \column{0.5\textwidth}
+                \begin{itemize}
+                    \item \alert{Channel ID:}: 1554737
+                    \item \alert{Data field}: temperature
+                    \item \alert{Access}: public
+                \end{itemize}
+              \end{block}
+            \column{0.6\textwidth}
             \begin{figure}
                 \centering
                 \begin{stampbox}
@@ -228,6 +242,9 @@
     \begin{frame}
         \frametitle{Phase 2: IoT platform (ThingSpeak) - Sending sensor data}
 
+        \paragraph{ThingSpeak dashboard} Components classification:
+            Coffemaker spent when coffee was boiled (\~90 degrees)
+
         \begin{figure}
             \centering
             \begin{stampbox}
@@ -236,10 +253,6 @@
             \caption{Coffeemaker lifycycle}
         \end{figure}
         
-
-        \begin{block}{ThingSpeak dashboard}
-            Coffemaker spent when coffee was boiled (\~90 degrees)
-        \end{block}
     \end{frame}
 
 \subsection{Phase 3: Node-RED manager - Deployment}
